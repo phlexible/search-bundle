@@ -1,6 +1,6 @@
-Ext.namespace('Phlexible.search.menuhandle');
+Ext.namespace('Phlexible.search.model');
 
-Phlexible.search.SearchRecord = Ext.data.Record.create([
+Phlexible.search.model.Result = Ext.data.Record.create([
     'id',
     'image',
     'title',
