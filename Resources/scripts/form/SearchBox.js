@@ -1,6 +1,6 @@
-Ext.namespace('Phlexible.search');
+Ext.provide('Phlexible.search.field.SearchBox');
 
-Phlexible.search.SearchBox = Ext.extend(Ext.form.ComboBox, {
+Phlexible.search.field.SearchBox = Ext.extend(Ext.form.ComboBox, {
     displayField: 'title',
     cls: 'p-searchbox',
     typeAhead: false,
@@ -73,7 +73,7 @@ Phlexible.search.SearchBox = Ext.extend(Ext.form.ComboBox, {
             '</tpl>'
         );
 
-        Phlexible.search.SearchBox.superclass.initComponent.call(this);
+        Phlexible.search.field.SearchBox.superclass.initComponent.call(this);
 
         this.on('render', function () {
             Phlexible.globalKeyMap.accessKey({key: 'f', alt: true}, this.focus, this);
@@ -81,4 +81,4 @@ Phlexible.search.SearchBox = Ext.extend(Ext.form.ComboBox, {
     }
 });
 
-Ext.reg('searchbox', Phlexible.search.SearchBox);
+Ext.reg('searchbox', Phlexible.search.field.SearchBox);

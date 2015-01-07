@@ -1,4 +1,6 @@
-Ext.namespace('Phlexible.search');
+Ext.provide('Phlexible.search.SearchPanel');
+
+Ext.require('Phlexible.search.model.Result');
 
 Phlexible.search.SearchPanel = Ext.extend(Ext.Panel, {
     title: 'Search',
@@ -20,18 +22,16 @@ Phlexible.search.SearchPanel = Ext.extend(Ext.Panel, {
                     this.getComponent(0).store.removeAll();
                 }.createDelegate(this),
                 listeners: {
-                    keyup: {
-                        fn: function (field, event) {
-                            if (event.getKey() == event.ENTER) {
-                                this.task.cancel();
-                                this.doSearch();
-                                return;
-                            }
+                    keyup: function (field, event) {
+                        if (event.getKey() == event.ENTER) {
+                            this.task.cancel();
+                            this.doSearch();
+                            return;
+                        }
 
-                            this.task.delay(500);
-                        },
-                        scope: this
-                    }
+                        this.task.delay(500);
+                    },
+                    scope: this
                 }
             }
         ];
